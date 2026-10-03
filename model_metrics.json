@@ -1,0 +1,15 @@
+{
+  "task": "Crop / plant leaf disease classification",
+  "dataset": "PlantVillage (mohanty/PlantVillage, geraldmc/plantvillage-full on Hugging Face)",
+  "classes": 38,
+  "input": "96 x 96 RGB",
+  "backbone": "MobileNetV3-Small (ImageNet-pretrained, frozen)",
+  "method": "Frozen-backbone feature extraction + trained classifier head (linear probe), exported to ONNX",
+  "training_images": 5300,
+  "validation_images": 1140,
+  "validation_accuracy_percent": 90.09,
+  "model_size_mb": 4.36,
+  "inference_latency_ms_cpu_single_image": 1.5,
+  "runtime": "ONNX Runtime (CPU) - suitable for on-device / edge deployment",
+  "notes": "int8 dynamic quantization shrank the model to 1.27 MB but collapsed accuracy to 2.8% (unsupported op handling), so the fp32 model is shipped. Static quantization with calibration data is a planned next step."
+}

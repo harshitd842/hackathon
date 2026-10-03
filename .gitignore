@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# Training data and intermediate files (do NOT upload these - they are large)
+data/
+*.parquet
+feat_*.npy
+lab_*.npy
+head.pt
+pv0.parquet
+pv1.parquet
+
+# OS / editor
+.DS_Store
+.vscode/

@@ -1,0 +1,10 @@
+# Dependencies to RUN the model and the demo
+onnxruntime
+numpy
+pillow
+gradio
+
+# --- Only needed if you want to RE-TRAIN the model (train_pipeline.py) ---
+# torch
+# torchvision
+# onnx
