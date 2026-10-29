@@ -11,5 +11,38 @@
   "model_size_mb": 4.36,
   "inference_latency_ms_cpu_single_image": 1.5,
   "runtime": "ONNX Runtime (CPU) - suitable for on-device / edge deployment",
-  "notes": "int8 dynamic quantization shrank the model to 1.27 MB but collapsed accuracy to 2.8% (unsupported op handling), so the fp32 model is shipped. Static quantization with calibration data is a planned next step."
+  "notes": "int8 dynamic quantization shrank the model to 1.27 MB but collapsed accuracy to 2.8% (unsupported op handling), so the fp32 model is shipped. Static quantization with calibration data is a planned next step.",
+  "profiling": {
+    "model_file": "crop_disease.onnx",
+    "model_size_mb": 4.15,
+    "input_shape": [
+      1,
+      3,
+      96,
+      96
+    ],
+    "output_shape": [
+      1,
+      38
+    ],
+    "load_time_ms": 37.6,
+    "ram_before_load_mb": 52.0,
+    "ram_after_load_mb": 66.6,
+    "ram_delta_mb": 14.6,
+    "ram_peak_mb": 70.8,
+    "cpu_percent_of_all_cores": 702.0,
+    "cpu_percent_of_one_core": 58.5,
+    "latency_ms_mean": 0.71,
+    "latency_ms_median": 0.7,
+    "latency_ms_p95": 0.8,
+    "latency_ms_min": 0.65,
+    "latency_ms_max": 0.99,
+    "throughput_img_per_s": 1404.0,
+    "runs": 50,
+    "cpu_threads": "onnxruntime default",
+    "cpu_count": 12,
+    "runtime": "onnxruntime 1.30.0",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "measurement_source": "stdlib/ctypes (no psutil)"
+  }
 }
