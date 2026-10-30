@@ -24,6 +24,7 @@ Every stage runs on the device; 0 bytes leave the phone.*
   estimated rupee saving per recommendation.
 - **100% offline** — a 4.36 MB ONNX model. Measured at **0.7 ms per image** and
   **15 MB of RAM** on a Windows 11 laptop.
+- **Hindi and English** — the advisory, the labels and a spoken answer.
 - **Gradio demo** — upload a photo and see the whole pipeline run.
 
 Measured on held-out PlantVillage images: **90.1%** accuracy on 1,140 unseen
@@ -116,10 +117,17 @@ Read these before quoting any number.
 - **It covers 14 crops only.** Wheat, rice, sugarcane, cotton and pulses are
   missing — most of India's fields. An unsupported crop gets a confident wrong
   answer today; a supported-crop gate is the planned fix.
-- **English text only.** No Hindi, no regional language, no voice yet.
+- **Hindi and English only.** The advisory and the UI ship in both. Regional
+  languages (Marathi, Telugu, Bengali and the rest) are not there yet. The spoken
+  answer uses the browser's built-in Hindi voice, which some machines do not have —
+  the text is always shown either way.
 - **Some classes are weak.** Blueberry, raspberry and soybean have a healthy
   class but no disease class; orange and squash have a disease class but no
   healthy class.
+- **Sibling crops get confused.** Tomato and potato share late blight and
+  early blight, and their leaves look almost identical. The model has no notion
+  of "crop", so it can name the wrong host. The app now says this explicitly and
+  notes that the treatment is the same, because the pathogen is the same.
 - **No field trial.** Nobody has measured this in a real season yet.
 
 The fixes are known and written down. See `TRAIN_GUIDE.md`.

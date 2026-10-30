@@ -12,6 +12,7 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "farm_storeho
 ROWS = [
     # item_name,               category,   quantity_available, unit, unit_cost_inr
     ("Mancozeb 75% WP",        "Fungicide", 0.0,  "kg", 350.0),
+    ("Metalaxyl-M 4% + Mancozeb 64%", "Fungicide", 0.0, "kg", 890.0),
     ("Copper Oxychloride",     "Fungicide", 1.5,  "kg", 420.0),
     ("Neem Oil Extract",       "Organic",   5.0,  "L",  180.0),
     ("Propiconazole 25% EC",   "Fungicide", 0.75, "L",  560.0),
