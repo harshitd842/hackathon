@@ -7,7 +7,8 @@ gradio
 # Optional: only if you want to run the MCP agent server (mcp_farm_server.py)
 # mcp
 
-# --- Only needed if you want to RE-TRAIN the model (train_pipeline.py) ---
+# --- Only needed if you want to DOWNLOAD DATA or RE-TRAIN the model ---
+# requests        (download_data.py)
 # torch
 # torchvision
 # onnx

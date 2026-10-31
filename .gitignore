@@ -17,3 +17,8 @@ pv1.parquet
 # OS / editor
 .DS_Store
 .vscode/
+pd_val/
+test10/
+test10v/
+crop_disease_OLD.onnx
+head.pt
