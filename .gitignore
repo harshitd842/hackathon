@@ -22,3 +22,4 @@ test10/
 test10v/
 crop_disease_OLD.onnx
 head.pt
+farm_storehouse.db
