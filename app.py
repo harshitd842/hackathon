@@ -29,7 +29,6 @@ from collections import Counter
 import numpy as np
 import onnxruntime as ort
 import gradio as gr
-from PIL import Image
 
 import guard
 import farm_tools

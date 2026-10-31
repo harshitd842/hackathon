@@ -12,7 +12,6 @@ Why this exists:
 Pure numpy + Pillow. No extra dependencies.
 """
 import numpy as np
-from PIL import Image
 
 _GRID = 160             # segment on a small grid for speed
 _MIN_AREA_FRAC = 0.012  # ignore regions smaller than ~1.2% of the image

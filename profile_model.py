@@ -56,7 +56,6 @@ _IS_WIN = platform.system() == "Windows"
 
 
 if _HAVE_PSUTIL:
-    import psutil
 
     def _proc():
         return psutil.Process()

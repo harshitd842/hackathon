@@ -276,7 +276,7 @@ def main():
     )
     size_mb = os.path.getsize(onnx_path) / 1e6
     print(f"exported {onnx_path} ({size_mb:.2f} MB)")
-    print(f"\nnext: copy crop_disease.onnx and class_names.json into the app folder")
+    print("\nnext: copy crop_disease.onnx and class_names.json into the app folder")
 
 
 if __name__ == "__main__":
