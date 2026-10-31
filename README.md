@@ -156,6 +156,7 @@ python train_pipeline_v2.py --data data --out .
 | `TRAIN_GUIDE.md` | the full step-by-step guide |
 | `download_data.py` | fetch public datasets; strip image metadata |
 | `prepare_data.py` | raw photos -> train/val split |
+| `add_plantdoc.py` | mixes PlantDoc field photos into training; produced the 30.9% field number |
 | `check_dataset.py` | report class counts and flag weak classes |
 | `train_pipeline_v2.py` | features -> head -> ONNX, with augmentation and per-class metrics |
 
