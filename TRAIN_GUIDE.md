@@ -38,14 +38,14 @@ Training here is five stages, and only the fourth one is "training":
 
 Why it is built this way: the ImageNet backbone already knows how to see edges,
 textures and colour patches. We do not re-teach it. We only teach a small head
-the last step — "these features mean *tomato late blight*". That is why training
+the last step, "these features mean *tomato late blight*". That is why training
 takes minutes on a laptop CPU, not hours on a GPU.
 
 ---
 
 ## 0. What you need
 
-- A laptop with **Python 3.12** (not 3.13 or newer — see Troubleshooting)
+- A laptop with **Python 3.12** (not 3.13 or newer, see Troubleshooting)
 - ~2 GB of free disk for the libraries
 - Photos. Start with at least **one class, 300+ images**. See the photo guide.
 
@@ -53,7 +53,7 @@ takes minutes on a laptop CPU, not hours on a GPU.
 
 ## 1. Set up the environment
 
-Run these once. Do not skip the virtual environment — it keeps this project's
+Run these once. Do not skip the virtual environment, it keeps this project's
 libraries separate from everything else on your machine.
 
 **Windows (PowerShell):**
@@ -91,17 +91,17 @@ Put every photo in a folder named after its class:
 
 ```
 raw/
-    Tomato___Late_blight/      IMG_001.jpg  IMG_002.jpg  ...
-    Tomato___healthy/          IMG_101.jpg  IMG_102.jpg  ...
-    Wheat___Yellow_rust/       IMG_201.jpg  IMG_202.jpg  ...
-    Wheat___healthy/           IMG_301.jpg  IMG_302.jpg  ...
+    Tomato___Late_blight/      IMG_001.jpg  IMG_002.jpg  ..
+    Tomato___healthy/          IMG_101.jpg  IMG_102.jpg  ..
+    Wheat___Yellow_rust/       IMG_201.jpg  IMG_202.jpg  ..
+    Wheat___healthy/           IMG_301.jpg  IMG_302.jpg  ..
 ```
 
 Rules for the folder name:
 
 - The name **is** the class name, so write it the way the app should say it.
 - Use the `Crop___Condition` convention with **three underscores**.
-- Keep it consistent — `Tomato___Late_blight`, never `tomato_late_blight`.
+- Keep it consistent, `Tomato___Late_blight`, never `tomato_late_blight`.
 - Give every crop a `___healthy` class as well.
 
 How many: aim for **300+ photos per class** and **50+ different leaves**, from
@@ -148,28 +148,28 @@ the training images means nothing.
 
 Open `train_pipeline_v2.py` alongside this section.
 
-**Stage A — features.** The backbone runs over every image once, with no
+**Stage A, features.** The backbone runs over every image once, with no
 learning, and returns 576 numbers per image. Because nothing is being learned
 yet, this is just a forward pass and it is fast. Training images are passed
 several times through random augmentations (flips, crops, colour jitter,
 rotation), so a class of 300 photos becomes 1,500 feature rows. That is how we
 get variety out of a small set.
 
-**Stage B — the head.** A small network learns to turn those 576 numbers into a
+**Stage B, the head.** A small network learns to turn those 576 numbers into a
 class score. It has two layers, and it is the only thing being trained.
 
-**Stage C — the loss.** The head is scored by how wrong it is, and the weights
+**Stage C, the loss.** The head is scored by how wrong it is, and the weights
 are nudged to reduce that. Two details matter:
 
-- **Class weights** — a class with 300 images does not drown out a class with
+- **Class weights**: a class with 300 images does not drown out a class with
   80. Each class contributes equally.
-- **Label smoothing** — the head is not allowed to become 100% certain, which
+- **Label smoothing**: the head is not allowed to become 100% certain, which
   keeps it from over-committing to a wrong answer.
 
 After every epoch the head is scored on the validation set, and the best-scoring
-version is kept. That is what gets exported — not the last one.
+version is kept. That is what gets exported, not the last one.
 
-**Stage D — export.** The backbone and the best head are joined into one model
+**Stage D, export.** The backbone and the best head are joined into one model
 and written as ONNX, a format that runs anywhere without PyTorch.
 
 ---
@@ -186,7 +186,7 @@ Useful flags:
 | --- | --- | --- |
 | `--data` | `data` | folder holding `train/` and `val/` |
 | `--out` | `.` | where the outputs are written |
-| `--img` | `96` | input size — **keep 96**, the app expects it |
+| `--img` | `96` | input size, **keep 96**, the app expects it |
 | `--aug` | `5` | augmented views per training image (more = slower, often better) |
 | `--epochs` | `100` | training passes |
 
@@ -194,13 +194,13 @@ What you will see:
 
 ```
 classes: 38
-extracting train features (5 augmented views per image) ...
+extracting train features (5 augmented views per image) ..
   train 26500 feature rows, val 1140  (42s)
   epoch  10  val accuracy 88.42%  (best 88.42%)
   epoch  20  val accuracy 90.11%  (best 90.11%)
-  ...
+  ..
 best validation accuracy: 90.09% at epoch 71
-weakest classes: Orange___Haunglongbing_(Citrus_greening) 74%, ...
+weakest classes: Orange___Haunglongbing_(Citrus_greening) 74%, ..
 exported crop_disease.onnx (4.36 MB)
 ```
 
@@ -219,14 +219,14 @@ exported crop_disease.onnx (4.36 MB)
 
 Open `metrics.json`. Do not stop at the top-line accuracy.
 
-- **`best_val_accuracy`** — the honest overall number. Quote this one.
-- **`per_class_accuracy`** — the number that tells you where to work next. A
+- **`best_val_accuracy`**: the honest overall number. Quote this one.
+- **`per_class_accuracy`**: the number that tells you where to work next. A
   class at 60% is a class you need more photos for.
-- **`top_confusions`** — which classes the model mixes up, for example
+- **`top_confusions`**: which classes the model mixes up, for example
   `Tomato___Early_blight -> Tomato___Late_blight`. These pairs look alike in the
   field too, so a few mistakes there are expected. A lot of them means you need
   more, and clearer, examples of the difference.
-- **`images_per_class`** — a check on balance. If one class has 900 images and
+- **`images_per_class`**: a check on balance. If one class has 900 images and
   another has 60, expect the small one to score badly.
 
 ---
@@ -240,7 +240,7 @@ python predict.py --image path/to/leaf.jpg
 ```
 
 Run it on at least one image from every class, and on a few real field photos
-with the phone in hand — not just the lab-style images. If a real photo comes
+with the phone in hand, not just the lab-style images. If a real photo comes
 back with a low confidence, that is the expected behaviour, and it is what the
 next round of photos is for.
 
@@ -268,7 +268,7 @@ the advisory is specific instead of the generic fallback.
 Adding a class is a data job, not a code job:
 
 1. Put the new photos in `raw/Wheat___Yellow_rust/` (and `raw/Wheat___healthy/`).
-2. Re-run `python prepare_data.py --raw raw --out data` — the existing classes
+2. Re-run `python prepare_data.py --raw raw --out data`, the existing classes
    are skipped, the new ones are split.
 3. Re-run `python train_pipeline_v2.py --data data --out .`
 4. Copy the new `crop_disease.onnx` and `class_names.json` into the app.
@@ -286,7 +286,7 @@ In the order that gives the most for the effort:
    more than any model change. This is the whole reason the photo guide exists.
 2. **Balance the classes.** Roughly equal images per class.
 3. **More augmentation.** Raise `--aug` to 6 or 8.
-4. **Larger input.** `--img 128` or `160` helps fine detail — but then you must
+4. **Larger input.** `--img 128` or `160` helps fine detail, but then you must
    also change the input size in the app to match, and the model gets bigger.
 5. **Fine-tune the backbone.** Only if the head has plateaued and you have
    thousands of images. Unfreeze the last two backbone blocks and train them at a
@@ -360,4 +360,4 @@ copy class_names.json   <app folder>
 | `crop_disease.onnx` | the trained model |
 | `class_names.json` | class names in output order |
 | `metrics.json` | accuracy, per-class accuracy, top confusions |
-| `farm_tools.py` | treatment text per class — update when you add a class |
+| `farm_tools.py` | treatment text per class, update when you add a class |

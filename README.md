@@ -1,7 +1,7 @@
 # Crop Disease Detector
 
 An **offline, on-device** crop-disease detector. Photograph a leaf, and the app
-names the disease and tells the farmer what to do about it — the treatment, the
+names the disease and tells the farmer what to do about it. It gives the treatment, the
 stock check, and the rupee estimate. No internet, no account, and no photo ever
 leaves the device.
 
@@ -14,18 +14,18 @@ Every stage runs on the device; 0 bytes leave the phone.*
 
 ## What it does
 
-- **Leaf Guard** — refuses the photo if it is not a leaf of a supported crop,
+- **Leaf Guard**: refuses the photo if it is not a leaf of a supported crop,
   instead of guessing.
-- **Auto-crop and multi-leaf** — finds the leaf (or several leaves) in the frame
+- **Auto-crop and multi-leaf**: finds the leaf (or several leaves) in the frame
   and classifies each one.
-- **38 classes across 14 crops** — 12 healthy classes and 26 disease/pest
+- **38 classes across 14 crops**: 12 healthy classes and 26 disease/pest
   classes, covering 20 distinct disease names.
-- **Local advisory** — treatment text, a seed/stock inventory check, and an
+- **Local advisory**: treatment text, a seed/stock inventory check, and an
   estimated rupee saving per recommendation.
-- **100% offline** — a 4.36 MB ONNX model. Measured at **0.7 ms per image** and
+- **100% offline**: a 4.36 MB ONNX model. Measured at **0.7 ms per image** and
   **15 MB of RAM** on a Windows 11 laptop.
-- **Hindi and English** — the advisory, the labels and a spoken answer.
-- **Gradio demo** — upload a photo and see the whole pipeline run.
+- **Hindi and English**: the advisory, the labels and a spoken answer.
+- **Gradio demo**: upload a photo and see the whole pipeline run.
 
 Measured on held-out PlantVillage images: **90.1%** accuracy on 1,140 unseen
 leaves.
@@ -34,7 +34,7 @@ leaves.
 
 ## Measured resource cost
 
-Every number below was produced by `profile_model.py` on a Windows 11 laptop —
+Every number below was produced by `profile_model.py` on a Windows 11 laptop.
 not estimated. Run it yourself to reproduce:
 
 ```bash
@@ -115,11 +115,11 @@ Read these before quoting any number.
   PlantVillage-trained model scored 13–15% when tested on real field images in
   the PlantDoc benchmark, and about 30% after fine-tuning on real photos.
 - **It covers 14 crops only.** Wheat, rice, sugarcane, cotton and pulses are
-  missing — most of India's fields. An unsupported crop gets a confident wrong
+  missing, and those cover most of India's fields. An unsupported crop gets a confident wrong
   answer today; a supported-crop gate is the planned fix.
 - **Hindi and English only.** The advisory and the UI ship in both. Regional
   languages (Marathi, Telugu, Bengali and the rest) are not there yet. The spoken
-  answer uses the browser's built-in Hindi voice, which some machines do not have —
+  answer uses the browser's built-in Hindi voice, which some machines do not have,
   the text is always shown either way.
 - **Some classes are weak.** Blueberry, raspberry and soybean have a healthy
   class but no disease class; orange and squash have a disease class but no
@@ -136,7 +136,7 @@ The fixes are known and written down. See `TRAIN_GUIDE.md`.
 
 ## Training your own model
 
-Start with **`TRAIN_GUIDE.md`** — a full walkthrough from an empty laptop to a
+Start with **`TRAIN_GUIDE.md`**, a full walkthrough from an empty laptop to a
 new `crop_disease.onnx`.
 
 ```bash
@@ -172,7 +172,7 @@ name.
 | --- | --- |
 | `app.py` | the Gradio demo and the request path |
 | `predict.py` | runs the ONNX model on a single image |
-| `guard.py` | Leaf Guard — supported-crop check and confidence gate |
+| `guard.py` | Leaf Guard: supported-crop check and confidence gate |
 | `leaf_segment.py` | leaf detection and cropping |
 | `farm_tools.py` | treatment text per class, and the rupee estimate |
 | `seed_inventory.py` | local stock check |
@@ -207,7 +207,7 @@ work.
   learning for image-based plant disease detection.* Frontiers in Plant Science,
   7, 1419. doi:10.3389/fpls.2016.01419
 - **Repository:** https://github.com/spMohanty/PlantVillage-Dataset
-- **Licence — check which release you downloaded.** This one needs care:
+- **Licence: check which release you downloaded.** This one needs care:
   - The original 2015 release announcement states the images are released under
     **CC BY-SA 3.0**, and adds that *algorithms trained on the data fall under
     the same licence* (Hughes & Salathé, arXiv:1511.08060).
@@ -224,7 +224,7 @@ work.
   N. (2020). *PlantDoc: A Dataset for Visual Plant Disease Detection.*
   CoDS-COMAD 2020, 249–253. doi:10.1145/3371158.3371196 (IIT Gandhinagar)
 - **Repository:** https://github.com/pratikkayal/PlantDoc-Dataset
-- **Licence:** Creative Commons Attribution 4.0 International (**CC BY 4.0**) —
+- **Licence:** Creative Commons Attribution 4.0 International (**CC BY 4.0**).
   attribution required, **no share-alike**. Real-world field photos, and the
   reason this project knows how far it still has to go.
 - **Note:** PlantDoc was used as a **benchmark**, not as training data. The model
@@ -254,11 +254,11 @@ it.
 
 ## Roadmap
 
-1. **Field photos and a retrain** — the single biggest accuracy gain.
-2. **A supported-crop gate** — a small binary filter so unsupported crops are
+1. **Field photos and a retrain**: the single biggest accuracy gain.
+2. **A supported-crop gate**: a small binary filter so unsupported crops are
    refused rather than mislabelled.
-3. **Hindi and a spoken answer** — for farmers who cannot read English.
-4. **One KVK pilot** — fifty farmers, one season, one measured number.
+3. **Hindi and a spoken answer**: for farmers who cannot read English.
+4. **One KVK pilot**: fifty farmers, one season, one measured number.
 
 ---
 
