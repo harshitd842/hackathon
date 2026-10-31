@@ -1,4 +1,6 @@
-# Crop Disease Detector
+# Krishilens
+
+**KrishiNova** | Compact AI Hackathon, Build Next 2026
 
 An **offline, on-device** crop-disease detector. Photograph a leaf, and the app
 names the disease and tells the farmer what to do about it. It gives the treatment, the
