@@ -355,7 +355,6 @@ copy class_names.json   <app folder>
 | --- | --- |
 | `prepare_data.py` | raw photos -> train/val split |
 | `train_pipeline_v2.py` | features -> head -> ONNX (this guide) |
-| `train_pipeline.py` | the original, simpler trainer, kept for reference |
 | `predict.py` | run the ONNX model on one image |
 | `crop_disease.onnx` | the trained model |
 | `class_names.json` | class names in output order |

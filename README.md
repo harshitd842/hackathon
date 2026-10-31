@@ -158,7 +158,6 @@ python train_pipeline_v2.py --data data --out .
 | `prepare_data.py` | raw photos -> train/val split |
 | `check_dataset.py` | report class counts and flag weak classes |
 | `train_pipeline_v2.py` | features -> head -> ONNX, with augmentation and per-class metrics |
-| `train_pipeline.py` | the original, simpler trainer, kept for reference |
 
 Adding a class is a data job, not a code job: drop the photos into
 `raw/<ClassName>/` and re-run the three commands. The class name is the folder
