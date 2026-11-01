@@ -1,9 +1,9 @@
 """
-train_pipeline_v2.py — train the crop-disease classifier from scratch.
+train_pipeline_v2.py - train the crop-disease classifier from scratch.
 
-This is an upgraded version of train_pipeline.py. It keeps the same idea — a
+This is an upgraded version of train_pipeline.py. It keeps the same idea - a
 frozen ImageNet backbone used as a feature extractor, plus a small classifier
-head trained on the cached features — and adds the four things that matter most
+head trained on the cached features - and adds the four things that matter most
 for real-world accuracy:
 
     1. Augmentation    each training photo is turned into several augmented
@@ -132,7 +132,7 @@ def main():
     train_dir = os.path.join(args.data, "train")
     val_dir = os.path.join(args.data, "val")
     if not os.path.isdir(train_dir):
-        raise SystemExit(f"error: {train_dir} not found — run prepare_data.py first")
+        raise SystemExit(f"error: {train_dir} not found - run prepare_data.py first")
 
     names = sorted(d for d in os.listdir(train_dir) if os.path.isdir(os.path.join(train_dir, d)))
     if not names:

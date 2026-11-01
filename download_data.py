@@ -1,9 +1,9 @@
 """
-download_data.py — bring public crop-disease datasets onto your disk.
+download_data.py - bring public crop-disease datasets onto your disk.
 
 This script is a one-time downloader. Nothing here runs in the app, and the app
 stays fully offline. Once a dataset is on your disk, unplug the network and
-everything else — prepare_data.py, training, and the app — runs offline.
+everything else - prepare_data.py, training, and the app - runs offline.
 
     network ON, once   ->  this script  ->  raw/<ClassName>/*.jpg
     network OFF, always->  prepare_data.py -> training -> app

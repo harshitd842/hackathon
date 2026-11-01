@@ -1,5 +1,5 @@
 """
-guard.py — Leaf Guard: reject inputs the model shouldn't be trusted on.
+guard.py - Leaf Guard: reject inputs the model shouldn't be trusted on.
 
 The classifier only knows 38 classes. For anything else (a bottle-gourd leaf,
 a shoe, a blank image, a blurry photo) it still forces a guess and can look

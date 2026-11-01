@@ -1,5 +1,5 @@
 """
-add_plantdoc.py — mix PlantDoc's field photos into a PlantVillage training set.
+add_plantdoc.py - mix PlantDoc's field photos into a PlantVillage training set.
 
 PlantDoc ships an official train/ and test/ split. This script:
   * copies PlantDoc **train** images into an existing PlantVillage train folder

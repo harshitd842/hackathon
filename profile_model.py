@@ -1,8 +1,8 @@
 """
-profile_model.py — measure what the model actually costs to run.
+profile_model.py - measure what the model actually costs to run.
 
 This answers the question a compact-AI judge will always ask: "you say it is
-lightweight — show me the numbers." It measures, on your own machine:
+lightweight - show me the numbers." It measures, on your own machine:
 
   * model file size
   * load time
@@ -16,7 +16,7 @@ It never overwrites your accuracy figures.
 
 No extra dependencies
 ---------------------
-Only onnxruntime and numpy are required — the same packages the app already
+Only onnxruntime and numpy are required - the same packages the app already
 uses. psutil is used if it happens to be installed, but it is not needed:
 on Windows the script reads process memory and CPU time through ctypes, and on
 Linux/macOS through the standard library. So this runs on a locked-down machine

@@ -1,5 +1,5 @@
 """
-prepare_data.py — turn one folder of raw photos into the train/val layout the
+prepare_data.py - turn one folder of raw photos into the train/val layout the
 training script expects.
 
     raw/<ClassName>/*.jpg          <- everything you photographed, unsorted
@@ -21,8 +21,7 @@ Usage
     python prepare_data.py --raw raw --out data --val-frac 0.2 --move
 
 Flags
------
-    --raw        folder holding one sub-folder per class  (default: raw)
+------raw        folder holding one sub-folder per class  (default: raw)
     --out        output folder, gets train/ and val/      (default: data)
     --val-frac   share held out for validation            (default: 0.2)
     --min-images refuse to accept a class below this many (default: 30)
@@ -117,7 +116,7 @@ def main():
     print(f"classes: {len(os.listdir(train_root))}")
 
     if problems:
-        print("\nWarnings — these classes were not added:")
+        print("\nWarnings - these classes were not added:")
         for p in problems:
             print(p)
         print("Collect more photos and run again.")

@@ -1,5 +1,5 @@
 """
-seed_inventory.py — create the local farm_storehouse.db with sample stock.
+seed_inventory.py - create the local farm_storehouse.db with sample stock.
 
 Run once:  python seed_inventory.py
 Then the app (and the MCP server) can check what the farmer already has.

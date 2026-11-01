@@ -1,5 +1,5 @@
 """
-app.py — Crop Disease Detector with Leaf Guard, auto-crop, multi-leaf support,
+app.py - Crop Disease Detector with Leaf Guard, auto-crop, multi-leaf support,
 Hindi/English output and an optional spoken answer.
 
 100% offline. No internet, no cloud, no account.
@@ -20,7 +20,7 @@ Then open the local URL it prints (usually http://127.0.0.1:7860).
 
 Speech: the 🔊 button uses the browser's built-in speech synthesis, so it needs
 no package and no internet. It uses a Hindi voice when the operating system has
-one; if it does not, the button simply does nothing — the text is always there.
+one; if it does not, the button simply does nothing - the text is always there.
 """
 import json
 import re
@@ -119,9 +119,9 @@ def _leaf_line(i, prob, lang):
     conf = float(prob[idx]) * 100
     if "healthy" in name.lower():
         word = "स्वस्थ" if lang == HI else "healthy"
-        return f"- **{'पत्ता' if lang == HI else 'Leaf'} {i}:** {_pretty(name, lang)} ({conf:.0f}%) — {word} ✅", False
+        return f"- **{'पत्ता' if lang == HI else 'Leaf'} {i}:** {_pretty(name, lang)} ({conf:.0f}%) - {word} ✅", False
     treatment = i18n.treatment_hi(name)[0] if lang == HI else farm_tools.get_treatment(name)[0]
-    return f"- **{'पत्ता' if lang == HI else 'Leaf'} {i}:** {_pretty(name, lang)} ({conf:.0f}%) — {treatment}", True
+    return f"- **{'पत्ता' if lang == HI else 'Leaf'} {i}:** {_pretty(name, lang)} ({conf:.0f}%) - {treatment}", True
 
 
 def speech_text(markdown):
@@ -144,9 +144,9 @@ def _run(img, acreage, lang=HI):
     # --- Many leaves: detect and check each region separately ---
     if len(boxes) >= MULTI_LEAF_MIN:
         if lang == HI:
-            lines = [f"🌿 **{len(boxes)} पत्ती क्षेत्र मिले** — हर एक जाँचा जा रहा है:", ""]
+            lines = [f"🌿 **{len(boxes)} पत्ती क्षेत्र मिले** - हर एक जाँचा जा रहा है:", ""]
         else:
-            lines = [f"🌿 **Detected {len(boxes)} leaf regions** — checking each one:", ""]
+            lines = [f"🌿 **Detected {len(boxes)} leaf regions** - checking each one:", ""]
         affected = 0
         for i, (x0, y0, x1, y1) in enumerate(boxes, 1):
             crop = img.crop((x0, y0, x1, y1))
@@ -201,7 +201,7 @@ def _run(img, acreage, lang=HI):
             text = i18n.UI["low_conf"].format(best=_pretty(NAMES[idx], lang), conf=conf, reason=reason)
         else:
             text = (
-                "⚠️ **Low confidence** — the model isn't sure about this photo.\n\n"
+                "⚠️ **Low confidence** - the model isn't sure about this photo.\n\n"
                 f"**Best guess:** {farm_tools.pretty(NAMES[idx])}  ({conf:.0f}%)\n\n"
                 "This may be wrong. For a reliable result, upload a **single leaf**, "
                 "close-up, on a plain background, in good light.\n\n"

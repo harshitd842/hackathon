@@ -1,5 +1,5 @@
 """
-check_dataset.py — look at your raw photos and tell you where you stand.
+check_dataset.py - look at your raw photos and tell you where you stand.
 
 Run this BEFORE you train. It answers the only question that matters at this
 stage: do I have enough photos per class to train anything useful?
@@ -20,7 +20,7 @@ It never moves, edits or deletes anything. It only reads.
 
 What the numbers mean
 ---------------------
-  < 30 photos     not trainable — collect more
+  < 30 photos     not trainable - collect more
   30-99           trainable, but the class will be weak
   100-299         workable, expect mistakes
   300+            a solid class

@@ -1,5 +1,5 @@
 """
-predict.py — run the on-device crop-disease classifier on a single image.
+predict.py - run the on-device crop-disease classifier on a single image.
 
 Dependencies: onnxruntime, numpy, pillow
 Usage:  python predict.py path/to/leaf.jpg

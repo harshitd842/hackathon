@@ -1,9 +1,9 @@
 """
-i18n.py — Hindi (Devanagari) text for the crop-disease app.
+i18n.py - Hindi (Devanagari) text for the crop-disease app.
 
 The English advisory lives in farm_tools.py. This module mirrors the same logic
 for Hindi: same class names, same treatments, same severity priors, same rupee
-arithmetic — only the words change. Import farm_tools for the numbers so the two
+arithmetic - only the words change. Import farm_tools for the numbers so the two
 languages can never drift apart.
 
 Used by app.py when the language switch is set to हिंदी.
@@ -118,16 +118,16 @@ SIBLING_CROP_HI = {"Tomato": "टमाटर", "Potato": "आलू"}
 
 # ---------------------------------------------------------------- UI strings
 UI = {
-    "title": "फसल रोग पहचान — पूरी तरह ऑफ़लाइन, इलाज की सलाह के साथ",
+    "title": "फसल रोग पहचान - पूरी तरह ऑफ़लाइन, इलाज की सलाह के साथ",
     "desc": (
-        "पत्ती की फोटो डालें। मॉडल पूरी तरह ऑफ़लाइन चलता है — न इंटरनेट, न क्लाउड, "
+        "पत्ती की फोटो डालें। मॉडल पूरी तरह ऑफ़लाइन चलता है - न इंटरनेट, न क्लाउड, "
         "न कोई खाता। फोटो में कई पत्ते हों तो हर एक जाँचा जाता है; वरना पत्ती अपने आप "
         "काट ली जाती है। जहाँ मॉडल पक्का नहीं होता, वहाँ लीफ गार्ड साफ़ मना कर देता है। "
         "38 रोग-वर्ग, 14 फसलें, 92.2% सटीकता।"
     ),
     "scope": (
         "**सटीकता का दायरा:** 92.2% उन साफ़, अलग-अलग पत्ती की फोटो पर जो प्रयोगशाला "
-        "जैसी हों (PlantVillage)। असली खेत की फोटो पर यह कम रहती है — 30.9% "
+        "जैसी हों (PlantVillage)। असली खेत की फोटो पर यह कम रहती है - 30.9% "
         "(PlantDoc बेंचमार्क; जो जवाब देता है उन पर 61.4%)। ऐसे में ऐप अंदाज़ा नहीं लगाता, साफ़ मना कर देता है।\n\n"
         "**सहायक फसलें (14):** टमाटर, आलू, मक्का, सेब, अंगूर, आड़ू, शिमला मिर्च, चेरी, "
         "स्ट्रॉबेरी, कद्दूवर्गीय, ब्लूबेरी, रसभरी, सोयाबीन, संतरा। इस सूची से बाहर का "
@@ -142,32 +142,32 @@ UI = {
     "top3_label": "शीर्ष 3 अनुमान",
     "no_photo": "पहले पत्ती की फोटो डालें।",
     "low_conf": (
-        "⚠️ **भरोसा कम है** — मॉडल इस फोटो के बारे में पक्का नहीं है।\n\n"
+        "⚠️ **भरोसा कम है** - मॉडल इस फोटो के बारे में पक्का नहीं है।\n\n"
         "**सबसे संभावित:** {best}  ({conf:.0f}%)\n\n"
         "यह गलत भी हो सकता है। भरोसेमंद नतीजे के लिए **एक पत्ती** की पास से, "
         "साफ़ पृष्ठभूमि और अच्छी रोशनी में फोटो डालें।\n\n"
         "_({reason})_"
     ),
-    "healthy_head": "✅ **आपका पौधा स्वस्थ दिख रहा है — किसी इलाज की ज़रूरत नहीं।**",
+    "healthy_head": "✅ **आपका पौधा स्वस्थ दिख रहा है - किसी इलाज की ज़रूरत नहीं।**",
     "healthy_tail": (
         "नियमित निगरानी रखें; शुरुआत में पहचान ही सबसे अच्छी सुरक्षा है।\n\n"
         "_अगर नए धब्बे या रंग बदलना दिखे, तो नई फोटो लें।_"
     ),
     "spray_yes": "✅ **छिड़काव की सलाह दी जाती है।**",
-    "spray_no": "⚠️ इस गंभीरता पर इलाज का खर्च फ़ायदे से ज़्यादा हो सकता है — फसल पर नज़र रखें।",
-    "disclaimer": "_यह सलाह सामान्य जानकारी है — अपने नज़दीकी KVK / कृषि अधिकारी से पुष्टि करें।_",
+    "spray_no": "⚠️ इस गंभीरता पर इलाज का खर्च फ़ायदे से ज़्यादा हो सकता है - फसल पर नज़र रखें।",
+    "disclaimer": "_यह सलाह सामान्य जानकारी है - अपने नज़दीकी KVK / कृषि अधिकारी से पुष्टि करें।_",
 }
 
 
 # ---------------------------------------------------------------- helpers
 def pretty_hi(class_name):
-    """'Tomato___Late_blight' -> 'टमाटर — पछेती झुलसा'."""
+    """'Tomato___Late_blight' -> 'टमाटर - पछेती झुलसा'."""
     if "___" not in class_name:
         return class_name
     crop, disease = class_name.split("___", 1)
     crop_hi = CROPS_HI.get(crop, crop)
     disease_hi = DISEASES_HI.get(disease, disease.replace("_", " "))
-    return f"{crop_hi} — {disease_hi}"
+    return f"{crop_hi} - {disease_hi}"
 
 
 def treatment_hi(class_name):
@@ -204,11 +204,11 @@ def _diagnosis_hi(class_name, confidence_pct):
     if pair and confidence_pct < CONFIDENT_ENOUGH_TO_NAME_CROP:
         both = " या ".join(SIBLING_CROP_HI.get(c, c).lower() for c in pair)
         return (
-            f"{disease_hi}  —  {confidence_pct:.0f}% विश्वास",
-            f"**फसल:** {both} — पत्ते लगभग एक जैसे दिखते हैं और रोग भी एक ही है, "
+            f"{disease_hi}  -  {confidence_pct:.0f}% विश्वास",
+            f"**फसल:** {both} - पत्ते लगभग एक जैसे दिखते हैं और रोग भी एक ही है, "
             f"इसलिए नीचे बताया इलाज दोनों के लिए एक जैसा है।",
         )
-    return f"{pretty_hi(class_name)}  —  {confidence_pct:.0f}% विश्वास", ""
+    return f"{pretty_hi(class_name)}  -  {confidence_pct:.0f}% विश्वास", ""
 
 
 def _sibling_note_hi(class_name):
@@ -224,7 +224,7 @@ def _sibling_note_hi(class_name):
     disease_hi = DISEASES_HI.get(disease, disease.replace("_", " ")).lower()
     a, b = (SIBLING_CROP_HI.get(c, c) for c in pair)
     return (
-        f"⚠️ **फसल पर ध्यान दें:** {disease_hi} {a} और {b} दोनों पर होता है — "
+        f"⚠️ **फसल पर ध्यान दें:** {disease_hi} {a} और {b} दोनों पर होता है - "
         f"पत्ते लगभग एक जैसे दिखते हैं और रोगाणु भी एक ही है। "
         f"अगर आपका पौधा {SIBLING_CROP_HI.get(others[0], others[0])} है, तो ऊपर बताया इलाज वही रहेगा।"
     )
@@ -234,7 +234,7 @@ def build_advice_hi(class_name, confidence_pct, acreage):
     """Hindi advisory card. Same numbers as farm_tools.build_advice."""
     if "healthy" in class_name.lower():
         return "\n".join([
-            f"**निदान:** {pretty_hi(class_name)}  —  {confidence_pct:.0f}% विश्वास",
+            f"**निदान:** {pretty_hi(class_name)}  -  {confidence_pct:.0f}% विश्वास",
             "",
             UI["healthy_head"],
             "",

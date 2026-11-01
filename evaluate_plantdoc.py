@@ -1,5 +1,5 @@
 """
-evaluate_plantdoc.py — measure the CURRENT model on PlantDoc (real field photos).
+evaluate_plantdoc.py - measure the CURRENT model on PlantDoc (real field photos).
 
 PlantDoc ships an official train/ and test/ split. This script uses ONLY the
 test/ folder, so nothing it measures has ever been seen in training.

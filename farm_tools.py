@@ -1,5 +1,5 @@
 """
-farm_tools.py — the local farm-advisory logic (the "agent tools").
+farm_tools.py - the local farm-advisory logic (the "agent tools").
 
 Everything here runs offline on the local machine:
   1. look up a treatment for a diagnosed disease
@@ -83,7 +83,7 @@ def severity_for(class_name):
 def check_pesticide_stock(chemical_name):
     """Query the local shed inventory. Returns a human-readable string."""
     if not os.path.exists(DB_PATH):
-        return "(inventory not set up yet — run: python seed_inventory.py)"
+        return "(inventory not set up yet - run: python seed_inventory.py)"
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     cur.execute(
@@ -142,9 +142,9 @@ def build_advice(class_name, confidence_pct, acreage):
     # Healthy plant -> no treatment, no economics. Just say it's healthy.
     if "healthy" in class_name.lower():
         return "\n".join([
-            f"**Diagnosis:** {pretty(class_name)}  —  {confidence_pct:.0f}% confidence",
+            f"**Diagnosis:** {pretty(class_name)}  -  {confidence_pct:.0f}% confidence",
             "",
-            "✅ **Your plant looks healthy — no treatment needed.**",
+            "✅ **Your plant looks healthy - no treatment needed.**",
             "",
             "Keep monitoring regularly; early detection is the best protection.",
             "",
@@ -161,7 +161,7 @@ def build_advice(class_name, confidence_pct, acreage):
     note = "" if crop_line else sibling_crop_note(class_name)
 
     spray = ("✅ **Spray recommended.**" if roi["spray_recommended"]
-             else "⚠️ At this severity, treatment may not be worth the cost yet — monitor the crop.")
+             else "⚠️ At this severity, treatment may not be worth the cost yet - monitor the crop.")
     return "\n".join([
         f"**Diagnosis:** {diag}",
         *([crop_line, ""] if crop_line else [""]),
@@ -177,5 +177,5 @@ def build_advice(class_name, confidence_pct, acreage):
         "",
         spray,
         "",
-        "_Advisory is illustrative — please confirm with your local KVK / agriculture officer._",
+        "_Advisory is illustrative - please confirm with your local KVK / agriculture officer._",
     ])

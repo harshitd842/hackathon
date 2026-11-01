@@ -1,9 +1,9 @@
 """
-mcp_farm_server.py — expose the local farm tools to a local SLM via MCP.
+mcp_farm_server.py - expose the local farm tools to a local SLM via MCP.
 
 This is the "agentic" layer. A small local language model (e.g. Qwen2.5-3B via
 Ollama or the Kompact AI runtime) can call these tools to turn a diagnosis into
-an economic decision — completely offline.
+an economic decision - completely offline.
 
 Setup (optional, for the agentic demo):
     pip install mcp

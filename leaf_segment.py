@@ -1,9 +1,9 @@
 """
-leaf_segment.py — find leaf region(s) in a photo, WITHOUT a trained detector.
+leaf_segment.py - find leaf region(s) in a photo, WITHOUT a trained detector.
 
 Why this exists:
     The classifier was trained on single, close-up leaves (PlantVillage style).
-    On a real photo — a whole plant, or a pile of many leaves — feeding the
+    On a real photo - a whole plant, or a pile of many leaves - feeding the
     entire image gives poor results. This module segments the image by colour
     into leaf-like regions, so app.py can:
       * auto-crop a single leaf (a big accuracy win on real photos), and
