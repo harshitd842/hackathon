@@ -1,11 +1,11 @@
-# Setup Guide — run this project on your own computer, then push to GitHub
+# Setup Guide: run this project on your own computer, then push to GitHub
 
 This guide is for beginners. Follow it top to bottom. Commands are for **Windows**;
 Mac/Linux differences are noted.
 
 ---
 
-## Part A — Get it running on your computer (VS Code)
+## Part A: Get it running on your computer (VS Code)
 
 ### 1. Install Python
 - Go to https://www.python.org/downloads/ and install Python 3.11 or newer.
@@ -64,16 +64,16 @@ dataset or just photograph one.) It prints the top-3 predicted diseases. To open
 ```
 python app.py
 ```
-A local link (like `http://127.0.0.1:7860`) appears — open it in your browser and upload a leaf photo.
+A local link (like `http://127.0.0.1:7860`) appears, open it in your browser and upload a leaf photo.
 
 > If you want to **re-train**, you also need `torch`, `torchvision` and `onnx`
 > (uncomment them in `requirements.txt`), plus the dataset in a `data/` folder.
 
 ---
 
-## Part B — Put it on GitHub
+## Part B: Put it on GitHub
 
-GitHub does **not run** your code — it stores it and shows it to others (great for a
+GitHub does **not run** your code, it stores it and shows it to others (great for a
 hackathon portfolio). You run the code on your own machine.
 
 ### 1. Install Git
@@ -98,19 +98,19 @@ git push -u origin main
 Replace `<your-username>` with your GitHub username. GitHub will ask you to sign in
 (or paste a token) the first time.
 
-Refresh your GitHub page — your files are now online.
+Refresh your GitHub page, your files are now online.
 
 > **Important:** the `.gitignore` file stops the big `data/` folder and training files
-> from being uploaded. Never commit the dataset — it is hundreds of MB.
+> from being uploaded. Never commit the dataset, it is hundreds of MB.
 
 ---
 
-## Part C — Running on the internet (optional)
+## Part C: Running on the internet (optional)
 
-- **Google Colab** (easiest): https://colab.research.google.com — free, runs in the browser,
+- **Google Colab** (easiest): https://colab.research.google.com, free, runs in the browser,
   good for training. You can `git clone` your repo there and run the code.
 - **GitHub Codespaces**: VS Code in the browser, opened from your repo (has a free monthly limit).
-- **GitHub Actions**: for automatic runs (tests, builds) — not needed for a hackathon demo.
+- **GitHub Actions**: for automatic runs (tests, builds), not needed for a hackathon demo.
 
 For the hackathon, running locally in VS Code (Part A) and showing the demo is enough.
 
