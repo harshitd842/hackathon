@@ -1,4 +1,4 @@
-# UI Decisions — PatteVaidya (पत्तेवैद्य)
+# UI Decisions: Krishilens (कृषिलेंस)
 
 A short record of the interface choices behind the app, so future contributors
 know *why* things look the way they do.
@@ -12,7 +12,7 @@ Devanagari than English, so Hindi is the default and English is one click away
 (the language radio sits under the upload box).
 
 Class names, treatment names and the whole advisory are translated in `i18n.py`.
-That file is the single source of truth — the UI never hard-codes a Hindi string.
+That file is the single source of truth, the UI never hard-codes a Hindi string.
 
 **Trade-off:** the file is long (38 classes × 9 treatments × 2 languages). We
 accepted that in exchange for one place to fix a typo.
@@ -30,7 +30,7 @@ accepted that in exchange for one place to fix a typo.
 ```
 
 The left column is *input*, the right column is *answer*. Nothing else competes
-for attention — no menus, no tabs, no login.
+for attention, no menus, no tabs, no login.
 
 ---
 
@@ -41,7 +41,7 @@ guessing loudly is worse than saying nothing.
 
 When the guard rejects a prediction (`guard.check()`), the app shows:
 
-> **भरोसा कम है** — मॉडल इस फोटो के बारे में पक्का नहीं है।
+> **भरोसा कम है**, मॉडल इस फोटो के बारे में पक्का नहीं है।
 
 …and **no** treatment advice. This is a deliberate UX choice: a confident wrong
 answer costs a farmer money, an honest "I don't know" costs nothing.
@@ -56,7 +56,7 @@ let too many weak answers through, 0.75 rejected correct ones.
 | Element | Colour | Why |
 | --- | --- | --- |
 | Primary action | deep green | reads as "crop / healthy" |
-| Refusal state | amber | warning, not error — the app is not broken |
+| Refusal state | amber | warning, not error, the app is not broken |
 | Healthy result | green | matches the primary action |
 | Diseased result | rust red | distinct from the refusal amber |
 
@@ -70,7 +70,7 @@ image on the screen.
 Every accuracy claim carries its scope. The line above the upload box says:
 
 > 92.2% उन साफ़, अलग-अलग पत्ती की फोटो पर जो प्रयोगशाला जैसी हों (PlantVillage)।
-> असली खेत की फोटो पर यह कम रहती है — 30.9% (PlantDoc बेंचमार्क; जो जवाब देता है
+> असली खेत की फोटो पर यह कम रहती है, 30.9% (PlantDoc बेंचमार्क; जो जवाब देता है
 > उन पर 61.4%)।
 
 A judge or a farmer should never see "92%" without knowing what it was measured on.
@@ -80,7 +80,7 @@ A judge or a farmer should never see "92%" without knowing what it was measured 
 ## 6. Supported crops are listed, not implied
 
 14 crops are supported. The app names them **before** the farmer uploads, so an
-unsupported leaf (e.g. okra) does not feel like a bug — it feels like a known
+unsupported leaf (e.g. okra) does not feel like a bug, it feels like a known
 limit.
 
 ---
