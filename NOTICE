@@ -1,0 +1,64 @@
+NOTICE
+
+Krishilens / KrishiNova
+Copyright (c) 2026 KrishiNova Team
+Harshit Dwivedi, Mahak Jaiswal, Anurag Dwivedi
+
+
+1. What the MIT licence in LICENSE covers
+
+The MIT licence in the LICENSE file covers the original source code and
+documentation written for this project. That includes the Python files,
+the Gradio app, the Leaf Guard, the advisory logic, the Hindi interface
+strings, the training and evaluation scripts, the tests, and the Markdown
+guides.
+
+
+2. What it does not cover: the trained model and the label list
+
+These files carry upstream terms and are not relicensed by the MIT licence:
+
+  - crop_disease.onnx
+  - class_names.json
+  - model_metrics.json
+
+The model was trained on PlantVillage images. PlantVillage is published under
+two different terms depending on which release was downloaded. The original
+2015 release announcement states CC BY-SA 3.0 and adds that algorithms trained
+on the data fall under the same licence. The GitHub repository and the common
+Kaggle mirrors are listed as CC0 1.0. These two do not agree.
+
+If this project was trained from a CC BY-SA release, then the model is
+arguably CC BY-SA as well and must be shared under the same terms. If it came
+from a CC0 mirror, there is no such condition. The exact provenance of the
+copy used here has not been settled. Anyone redistributing the model
+commercially should resolve this first.
+
+See the "Data, licences and credits" section of README.md for full citations.
+
+
+3. Benchmark data, not training data
+
+PlantDoc was used as a benchmark only, to measure how the model performs on
+real field photos. It was not used as training data for the shipped model.
+PlantDoc is published under CC BY 4.0, attribution required, no share-alike.
+Citation: Singh, D., Jain, N., Jain, P., Kayal, P., Kumawat, S., & Batra, N.
+(2020). PlantDoc: A Dataset for Visual Plant Disease Detection. CoDS-COMAD
+2020, 249-253. doi:10.1145/3371158.3371196
+
+
+4. Third-party libraries
+
+PyTorch and torchvision are BSD-3-Clause. MobileNetV3 ImageNet weights are
+BSD-3-Clause. ONNX Runtime, Gradio, NumPy and the remaining dependencies keep
+their own licences. The full table is in README.md.
+
+
+5. No warranty on agricultural advice
+
+The treatment suggestions, cost estimates and severity notes in this project
+are illustrative decision support, not agronomic advice. They are not a
+substitute for a KVK or an agriculture officer. The model is a closed-set
+classifier trained on laboratory photographs and it can be wrong, including
+confidently wrong, on real field photographs. Do not rely on it as the only
+basis for a spraying or spending decision.
